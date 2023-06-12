@@ -147,8 +147,9 @@ class PathManager:
 
     @staticmethod
     def rename(src: str, dst: str):
-        os.rename(src, dst)
-
+        #os.rename(src, dst)
+        # Replace os.rename(src, dst) with shutil.move(src, dst) to avoid "FileExistsError" when saving model checkpoints in Windows.
+        shutil.move(src, dst)
     """
     ioPath async PathManager methods:
     """
